@@ -1,24 +1,46 @@
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div id="app"></div>
-    <script>
-        class App extends React.Component{
-            render(){
-                return (
-                    <div className='app-content'>
-                        <h1>Hey, ninjas</h1>
-                    </div>
-                )
-            }
+
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+
+    <script type='text/babel'>
+      class App extends React.Component {
+        state = {
+          name: 'Ryu',
+          age: 30,
         }
+        handleClick = e => this.setState({name: 'Humayun', age: 25})
+        handleMouseOver = e => console.log(e.target, e.pageX)
+        handleCopy = e => e.target.innerHTML = 'Try being original for once!';
+        
+        
+        render() {
+          const { name, age } = this.state;
+          return (
+            <div>
+              <h1>Hey, Ninjas</h1>
+              <p>My name is {name} and I am {age}</p>
+              <button onClick={this.handleClick}>Click Me</button>
+              <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+              <p onCopy={this.handleCopy}>What we think, we become.</p>
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById('root'));
     </script>
-</body>
+  </body>
+
 </html>
