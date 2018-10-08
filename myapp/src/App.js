@@ -11,6 +11,15 @@ class App extends Component {
       { name: 'Adam', age: 43, belt: 'yellow', id: 4 }
     ]
   };
+  addNinja = newNinja => {
+    newNinja.id = this.state.ninjas.length + 1;
+    // What is the difference between these two methods?
+    // const { ninjas } = this.state;
+    // const ninjas = [...this.state.ninjas];
+    // ninjas.push(newNinja);
+    const ninjas = [...this.state.ninjas, newNinja];
+    this.setState({ ninjas });
+  };
   render() {
     const { ninjas } = this.state;
     return (
@@ -18,7 +27,7 @@ class App extends Component {
         <h1>My first React app!</h1>
         <p>Welcome :)</p>
         <Ninjas ninjas={ninjas} />
-        <AddNinja />
+        <AddNinja addNinja={this.addNinja} />
       </div>
     );
   }
