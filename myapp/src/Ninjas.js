@@ -4,19 +4,49 @@ import React from 'react';
 // Functional Component
 // UI Component
 const Ninjas = ({ ninjas }) => {
-  const ninjaList = ninjas.map(ninja => {
-    const { age, belt, name, id } = ninja;
+  // if-else Method: [if (condition) {} else {}]
+  // const ninjaList = ninjas.map(ninja => {
+  //   const { age, belt, name, id } = ninja;
 
-    return (
-      <div className="ninja" key={id}>
-        <h3>Name: {name}</h3>
-        <p>Age: {age}</p>
-        <p>Belt: {belt}</p>
-      </div>
-    );
-  });
+  //   if (age > 20) {
+  //     return (
+  //       <div className="ninja" key={id}>
+  //         <h3>Name: {name}</h3>
+  //         <p>Age: {age}</p>
+  //         <p>Belt: {belt}</p>
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // })
 
-  return <div className="ninja-list">{ninjaList}</div>;
+  // Ternary Operator Method: [condition ? () : ()] | ***Better Method***
+  // const ninjaList = ninjas.map(ninja => {
+  //   const { age, belt, name, id } = ninja;
+  //   return age > 20 ? (
+  //     <div className="ninja" key={id}>
+  //       <h3>Name: {name}</h3>
+  //       <p>Age: {age}</p>
+  //       <p>Belt: {belt}</p>
+  //     </div>
+  //   ) : null;
+  // });
+
+  // return <div className="ninja-list">{ninjaList}</div>;
+  return (
+    <div className="ninja-list">
+      {ninjas.map(ninja => {
+        const { age, belt, name, id } = ninja;
+        return age > 20 ? (
+          <div className="ninja" key={id}>
+            <h3>Name: {name}</h3>
+            <p>Age: {age}</p>
+            <p>Belt: {belt}</p>
+          </div>
+        ) : null;
+      })}
+    </div>
+  );
 };
 
 export default Ninjas;
