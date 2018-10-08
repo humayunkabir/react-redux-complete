@@ -27,6 +27,19 @@ class App extends Component {
     this.setState({ ninjas });
   };
 
+  componentDidMount() {
+    console.log('Component mounted');
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      'Component updeted: ',
+      'prevProps: ',
+      prevProps,
+      'prevState: ',
+      prevState
+    );
+  }
+
   render() {
     const { ninjas } = this.state;
     return (

@@ -38,8 +38,8 @@ const Ninjas = ({ ninjas, deleteNinja }) => {
       {ninjas.map(ninja => {
         const { age, belt, name, id } = ninja;
         return age > 20 ? (
-          <div className="ninja">
-            <div className="block" key={id}>
+          <div className="ninja" key={id}>
+            <div className="block">
               <h3>Name: {name}</h3>
               <p>Age: {age}</p>
               <p>Belt: {belt}</p>
