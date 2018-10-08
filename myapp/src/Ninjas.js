@@ -3,7 +3,7 @@ import React from 'react';
 // Stateless Component
 // Functional Component
 // UI Component
-const Ninjas = ({ ninjas }) => {
+const Ninjas = ({ ninjas, deleteNinja }) => {
   // if-else Method: [if (condition) {} else {}]
   // const ninjaList = ninjas.map(ninja => {
   //   const { age, belt, name, id } = ninja;
@@ -42,6 +42,7 @@ const Ninjas = ({ ninjas }) => {
             <h3>Name: {name}</h3>
             <p>Age: {age}</p>
             <p>Belt: {belt}</p>
+            <button onClick={() => deleteNinja(id)}>Delete Ninja</button>
           </div>
         ) : null;
       })}
