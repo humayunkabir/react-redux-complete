@@ -16,3 +16,13 @@ code {
 nav ul a.active {
   background-color: rgba(0, 0, 0, 0.15);
 }
+.home .post img {
+  position: absolute;
+  top: 20px;
+  left: -150px;
+  opacity: 0.6;
+}
+.home .post {
+  overflow: hidden;
+  padding-left: 120px;
+}
